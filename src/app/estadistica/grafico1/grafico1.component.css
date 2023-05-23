@@ -1,0 +1,5 @@
+@media (max-width: 580px) {
+    canvasjs-chart{
+        width: 50px;
+    }
+}

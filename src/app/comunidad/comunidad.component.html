@@ -1,0 +1,49 @@
+<article class="portfolio active" data-page="comunidad">
+
+    <header>
+        <h2 class="h2 article-title">Directorio</h2>
+    </header>
+
+    <section class="projects">
+
+        <ul class="filter-list">
+
+            <li class="filter-item">
+                <button [class.active]="isFilterItemActive('Autoridades')" (click)="selectFilterValue('Autoridades')" >Entidades Públicas</button>
+            </li>
+
+            <li class="filter-item">
+                <button [class.active]="isFilterItemActive('Escuelas')" (click)="selectFilterValue('Escuelas')" >Escuelas</button>
+            </li>
+
+            <li class="filter-item">
+                <button [class.active]="isFilterItemActive('Restaurantes')" (click)="selectFilterValue('Restaurantes')" >Restaurantes</button>
+            </li>
+
+        </ul>
+
+        <ul class="project-list">
+
+            <li class="project-item" *ngFor="let categoria of categoria"
+                [class.active]="isFilterItemActive(categoria.category)">
+                <a href="#">
+
+                    <figure class="project-img">
+                        <div class="project-item-icon-box">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </div>
+
+                        <img src="{{ categoria.img }}" alt="{{ categoria.title }}" loading="lazy">
+                    </figure>
+
+                    <h3 class="project-title">{{ categoria.title }}</h3>
+                    <p class="project-category">{{ categoria.category }}</p>
+
+                </a>
+            </li>
+
+        </ul>
+
+    </section>
+
+</article>

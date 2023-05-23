@@ -1,0 +1,183 @@
+<!--
+  - #MAIN
+-->
+
+<main>
+
+  <!--
+      - #SIDEBAR
+    -->
+
+  <aside class="sidebar" [ngClass]="{ 'active': isSidebarActive }" data-sidebar>
+
+    <div class="sidebar-info">
+
+      <figure class="avatar-box my-avatar">
+        <img src="../assets/img/logos/SE.svg" alt="Logo SE" width="80">
+      </figure>
+
+      <div class="info-content">
+        <h1 class="name" title="Seguridad - ESPE">Seguridad - ESPE</h1>
+
+        <p class="title">Vinculación</p>
+      </div>
+
+      <button class="info_more-btn" [ngClass]="{ 'active': isSidebarActive }" data-sidebar-btn
+        (click)="toggleSidebar()">
+        <span>Información</span>
+        <ion-icon name="chevron-down"></ion-icon>
+      </button>
+
+    </div>
+
+    <div class="sidebar-info_more">
+
+      <div class="separator"></div>
+
+      <ul class="contacts-list">
+
+        <li class="contact-item">
+
+          <div class="icon-box">
+            <ion-icon name="mail-outline"></ion-icon>
+          </div>
+
+          <div class="contact-info">
+            <p class="contact-title">Email</p>
+
+            <a href="edicaciondigital@espe.edu.ec" class="contact-link">educaciondigital@espe.edu.ec</a>
+          </div>
+
+        </li>
+
+        <li class="contact-item">
+
+          <div class="icon-box">
+            <ion-icon name="phone-portrait-outline"></ion-icon>
+          </div>
+
+          <div class="contact-info">
+            <p class="contact-title">Teléfino</p>
+
+            <a href="tel:+12133522795" class="contact-link">(593) 2-2722-246</a>
+          </div>
+
+        </li>
+
+        <li class="contact-item">
+
+          <div class="icon-box">
+            <ion-icon name="location-outline"></ion-icon>
+          </div>
+
+          <div class="contact-info">
+            <p class="contact-title">Ubicación</p>
+
+            <address>Hda. Zoila Luz, Vía Santo Domingo – Quevedo Km. 24
+              Santo Domingo – Ecuador</address>
+          </div>
+
+        </li>
+
+      </ul>
+
+      <div class="separator"></div>
+
+      <ul class="social-list">
+
+        <li class="social-item">
+          <a href="#" class="social-link">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
+
+        <li class="social-item">
+          <a href="#" class="social-link">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+
+        <li class="social-item">
+          <a href="#" class="social-link">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+  </aside>
+
+
+  <!--
+      - #main-content
+  -->
+
+  <div class="main-content">
+    <!--
+        - #NAVBAR
+    -->
+    <nav class="navbar">
+      <ul class="navbar-list">
+        <li class="navbar-item active">
+          <button class="navbar-link" [ngClass]="{ 'active': currentPage === 'inicio' }" data-nav-link
+            (click)="selectPage(pages[0])">Inicio</button>
+        </li>
+        <li class="navbar-item">
+          <button class="navbar-link" [ngClass]="{ 'active': currentPage === 'comunidad' }" data-nav-link
+            (click)="selectPage(pages[1])">Comunidad</button>
+        </li>
+        <li class="navbar-item">
+          <button class="navbar-link" [ngClass]="{ 'active': currentPage === 'estadistica' }" data-nav-link
+            (click)="selectPage(pages[2])">Estadistica</button>
+        </li>
+        <li class="navbar-item">
+          <button class="navbar-link" [ngClass]="{ 'active': currentPage === 'contacto' }" data-nav-link
+            (click)="selectPage(pages[3])">Contacto</button>
+        </li>
+        <li class="navbar-item">
+
+          <button class="navbar-link" [ngClass]="{ 'active': currentPage === 'nosotros' }" data-nav-link
+            (click)="selectPage(pages[4])">Nosotros</button>
+        </li>
+      </ul>
+    </nav>
+
+
+    <!--
+        - #INICIO
+    -->
+    <ng-container *ngIf="activePageId === 'inicio'">
+      <app-inicio></app-inicio>
+    </ng-container>
+
+    <!--
+        - #COMUNIDAD
+    -->
+    <ng-container *ngIf="activePageId === 'comunidad'">
+      <app-comunidad></app-comunidad>
+    </ng-container>
+
+    <!--
+        - #ESTADISTICA
+    -->
+    <ng-container *ngIf="activePageId === 'estadistica'">
+      <app-estadistica></app-estadistica>
+    </ng-container>
+
+    <!--
+        - #CONTACT
+    -->
+    <ng-container *ngIf="activePageId === 'contacto'">
+      <app-contacto></app-contacto>
+    </ng-container>
+
+    <!--
+      - #SOBRE NOSOTROS
+    -->
+    <ng-container *ngIf="activePageId === 'nosotros'">
+      <app-nosotros></app-nosotros>
+    </ng-container>
+
+  </div>
+</main>
